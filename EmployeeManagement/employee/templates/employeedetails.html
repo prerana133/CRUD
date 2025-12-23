@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+    {% block content %}
+        <table class="table">
+        <thead>
+            <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Dept</th>
+            <th scope="col">Update</th>
+            <th scope="col">Delete</th>
+            </tr>
+         </thead>
+            <tbody>
+                {% for emp in employee %}
+                    <tr>
+                        <th scope="row">{{emp.id}}</th>
+                        <td>{{emp.name}}</td>
+                        <td>{{emp.email}}</td>
+                        <td>{{emp.salary}}</td>
+                        <td>{{emp.dept}}</td>
+                        <td><a href={% url "update" emp.id %} class='btn btn-primary'>Update</a></td>
+                        <td><a href={% url "delete" emp.id %} class='btn btn-danger'>Delete</a></td>
+                       
+                    </tr>
+                {% endfor %}
+            </tbody>
+</table>
+    
+{% endblock content %}
+
+
+
+    
